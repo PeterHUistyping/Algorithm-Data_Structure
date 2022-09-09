@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch IOtestingFor94",
+            "request": "launch",
+            "mainClass": "IOtestingFor94",
+            "projectName": "Java_Mac_202208 _b35ce165"
+        },
+        {
+            "type": "java",
+            "name": "Launch IOtestingFor108",
+            "request": "launch",
+            "mainClass": "IOtestingFor108",
+            "projectName": "Java_Mac_202208 _b35ce165"
+        },
+        {
+            "type": "java",
+            "name": "Launch IOtestingFor108",
+            "request": "launch",
+            "mainClass": "IOtestingFor108",
+            "projectName": "202208-Java-MaC _80d3dad"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch IOtesting",
+            "request": "launch",
+            "mainClass": "IOtesting",
+            "projectName": "202208-Java-MaC _80d3dad"
+        }
+    ]
+}
