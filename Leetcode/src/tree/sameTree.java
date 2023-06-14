@@ -1,6 +1,7 @@
 package tree;
-import lib.TreeNode;
-import lib.TreeOperation;
+import lib.BSTNode;
+import lib.BSTVisualise;
+import lib.TestBST;
 import lib.TestUtil;
 
 /*
@@ -10,7 +11,7 @@ import lib.TestUtil;
  * identical, and the nodes have the same value.
  */
 public class sameTree {
-    public static boolean isSameTree(TreeNode p, TreeNode q) {
+    public static boolean isSameTree(BSTNode p, BSTNode q) {
         if (p != null && q == null || p == null && q != null) // beginning
             return false;
         else if (p != null && q != null) {
@@ -29,18 +30,10 @@ public class sameTree {
 class IOtestingFor100 {
     public static void main(String[] arguments) {
         TestUtil.IO.printResult("Input Data");
-        int[] nums = { 0, 1, 2, 3, 4, 5, 6, 7 };
-        TreeNode tree = new TreeNode();
-        tree = tree.sortedArrayToBST(nums);
-        tree.PrintTreeAsArray();
+        BSTNode tree = new BSTNode();
+        tree = TestBST.getTree();
+      
         TestUtil.IO.printResult();
-        //TestUtil.IO.printResult();
-        TreeOperation.show(tree);
-        TestUtil.IO.printResult();
-        
-        TreeOperation.printTreeHorizontal(tree);
-        TestUtil.IO.printResult();
-
         System.out.print(sameTree.isSameTree(tree, tree));
         TestUtil.IO.endofResult();
     }

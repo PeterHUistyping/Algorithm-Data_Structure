@@ -1,51 +1,46 @@
 package lib;
+import lib.BSTNode;
+import lib.BST;
 
-// TreeOperation.java
-public class TreeOperation {
+
+
+public class BSTVisualise {
+    private static void writeArray(BSTNode currNode, int rowIndex, int columnIndex, String[][] res, int treeDepth) {
+    if (currNode == null) // not empty;
+        return;
+
+    res[rowIndex][columnIndex] = String.valueOf(currNode.val);
+
+    int currLevel = ((rowIndex + 1) / 2);
+
+    if (currLevel == treeDepth)
+        return;
+    // the distance between current one and the one next line
+    int gap = treeDepth - currLevel - 1;
+
+    if (currNode.left != null) {
+        res[rowIndex + 1][columnIndex - gap] = "/";
+        writeArray(currNode.left, rowIndex + 2, columnIndex - gap * 2, res, treeDepth);
+    }
+
+    if (currNode.right != null) {
+        res[rowIndex + 1][columnIndex + gap] = "\\";
+        writeArray(currNode.right, rowIndex + 2, columnIndex + gap * 2, res, treeDepth);
+    }
+}
     /*
-     * Example.
-     * 1
-     * / \
-     * 2 3
-     * / \ / \
-     * 4 5 6 7
-     */
-    public static int getTreeDepth(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        return root == null ? 0 : (1 + Math.max(getTreeDepth(root.left), getTreeDepth(root.right)));
-    }
-
-    private static void writeArray(TreeNode currNode, int rowIndex, int columnIndex, String[][] res, int treeDepth) {
-        if (currNode == null) // not empty;
-            return;
-
-        res[rowIndex][columnIndex] = String.valueOf(currNode.val);
-
-        int currLevel = ((rowIndex + 1) / 2);
-
-        if (currLevel == treeDepth)
-            return;
-        // the distance between current one and the one next line
-        int gap = treeDepth - currLevel - 1;
-
-        if (currNode.left != null) {
-            res[rowIndex + 1][columnIndex - gap] = "/";
-            writeArray(currNode.left, rowIndex + 2, columnIndex - gap * 2, res, treeDepth);
-        }
-
-        if (currNode.right != null) {
-            res[rowIndex + 1][columnIndex + gap] = "\\";
-            writeArray(currNode.right, rowIndex + 2, columnIndex + gap * 2, res, treeDepth);
-        }
-    }
-
-    public static void show(TreeNode root) {
+        * Example.
+        * 1
+        * / \
+        * 2 3
+        * / \ / \
+        * 4 5 6 7
+    */
+    public static void show(BSTNode root) {
         if (root == null)
             System.out.println("EMPTY!");
 
-        int treeDepth = getTreeDepth(root);
+        int treeDepth = BST.getTreeDepth(root);
 
         // last row 2^（n - 1）*3+1
 
@@ -76,7 +71,7 @@ public class TreeOperation {
     }
 
     // horizontal
-    private static String traversePreOrder(TreeNode root) {
+    private static String traversePreOrder(BSTNode root) {
         if (root == null) {
             return "";
         }
@@ -98,7 +93,7 @@ public class TreeOperation {
         return sb.toString();
     }
 
-    private static void traverseNodes(StringBuilder sb, String padding, String pointer, TreeNode node,
+    private static void traverseNodes(StringBuilder sb, String padding, String pointer, BSTNode node,
             boolean hasRightSibling) {
         if (node == null) {
             return;
@@ -124,8 +119,7 @@ public class TreeOperation {
         traverseNodes(sb, paddingForBoth, pointerRight, node.right, false);
     }
 
-    public static void printTreeHorizontal(TreeNode root) {
+    public static void printTreeHorizontal(BSTNode root) {
         System.out.print(traversePreOrder(root));
     }
-
 }

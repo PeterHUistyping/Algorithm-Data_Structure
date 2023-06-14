@@ -1,32 +1,17 @@
 package lib;
 
-public class TreeNode {
-    public int val;
-    public TreeNode left;
-    public TreeNode right;
+public class BST extends BSTNode {
 
-    public TreeNode() {
-    }
-
-    public TreeNode(int val) {
-        this.val = val;
-    }
-
-    public TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-
-    public static int maxDepth(TreeNode root) {
-        if (root == null)
+    public static int getTreeDepth(BSTNode root) {
+        if (root == null) {
             return 0;
-        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+        }
+        return root == null ? 0 : (1 + Math.max(getTreeDepth(root.left), getTreeDepth(root.right)));
     }
 
-    boolean begin = true;// complement
+   private boolean begin = true;// complement
 
-    public void PrintTreeAsArray() { // Inorder-Traversal
+    public void PrintTreeAsArray() { // Inorder-Traversal   
         if (left != null)
             left.PrintTreeAsArray();
         if (begin) {
@@ -38,15 +23,15 @@ public class TreeNode {
             right.PrintTreeAsArray();
     }
 
-    public TreeNode sortedArrayToBST(int[] nums) {
+    public static BSTNode sortedArrayToBST(int[] nums) {
         return sortedATBST(nums, 0, nums.length - 1);
     }
 
-    public TreeNode sortedATBST(int[] nums, int l, int h) {
-        TreeNode ans = null;
+    public static BSTNode sortedATBST(int[] nums, int l, int h) {
+        BSTNode ans = null;
         if (l <= h) {
             int m = (l + h) / 2;
-            TreeNode root = new TreeNode(nums[m]);
+            BSTNode root = new BSTNode(nums[m]); 
             root.left = sortedATBST(nums, l, m - 1);
             root.right = sortedATBST(nums, m + 1, h);
             ans = root;
@@ -54,7 +39,7 @@ public class TreeNode {
         return ans;
     }
 
-    public static boolean isSameTree(TreeNode p, TreeNode q) {
+    public static boolean isSameTree(BSTNode p, BSTNode q) {
         if (p != null && q == null || p == null && q != null) // beginning
             return false;
         else if (p != null && q != null) {
@@ -69,13 +54,14 @@ public class TreeNode {
         return false;
     }
 
-    public static boolean isBalanced(TreeNode root) {
+    public static boolean isBalanced(BSTNode root) {
         if (root == null)
             return true;
-        if (Math.abs(maxDepth(root.left) - maxDepth(root.right)) > 1)
+        if (Math.abs(getTreeDepth(root.left) - getTreeDepth(root.right)) > 1)
             return false;
         if (isBalanced(root.left) && isBalanced(root.right))
             return true;
         return false;
     }
+
 }

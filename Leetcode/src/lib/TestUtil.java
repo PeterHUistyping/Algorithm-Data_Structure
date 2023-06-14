@@ -1,4 +1,5 @@
 package lib;
+
 public class TestUtil {
     public static class IO{
         public static void printResult(){
@@ -11,5 +12,4 @@ public class TestUtil {
             System.out.println("\n ------ End of the Result ------ \n");
         }
     }
-
-}
+};

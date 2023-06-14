@@ -1,5 +1,6 @@
 # Algorithm and Data Structure
 ## Practical Session 
+Object-oriented style repo with algorithms solution for Leetcode, unit testing.
 ### Leetcode
 ```
 202208 - TreeNode Related

@@ -1,13 +1,15 @@
 package tree;
-import lib.TreeOperation;
-import lib.TreeNode;
+import lib.BSTNode;
+import lib.BSTVisualise;
+import lib.TestBST;
+import lib.TestUtil;
 /*
  * 104. Given the root of a binary tree, return its maximum depth.
  * A binary tree's maximum depth is the number of nodes along the 
  * longest path from the root node down to the farthest leaf node.
  */
 public class maxDepthBST {
-    public static int maxDepth(TreeNode root) {
+    public static int maxDepth(BSTNode root) {
         if (root == null)
             return 0;
         return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
@@ -16,18 +18,12 @@ public class maxDepthBST {
 
 class IOtestingFor104 {
     public static void main(String[] arguments) {
-        System.out.println("---- The Below is the Result ----");
-        int[] nums = { 0, 1, 2, 3, 4, 5, 6, 7 };
-        TreeNode tree = new TreeNode();
-        tree = tree.sortedArrayToBST(nums);
-        tree.PrintTreeAsArray();
-        System.out.println("\n---- The Below is the Result ----");
-        TreeOperation.show(tree);
-        System.out.println("\n---- The Below is the Result ----");
-        TreeOperation.printTreeHorizontal(tree);
-        System.out.println("\n---- The Below is the Result ----");
+       
+        BSTNode tree = new BSTNode();
+        tree = TestBST.getTree();
+        TestUtil.IO.printResult();
         System.out.print(maxDepthBST.maxDepth(tree));
-        System.out.println("\n ------ End of the Result ------ \n");
+        TestUtil.IO.endofResult();
 
     }
 
