@@ -1,4 +1,4 @@
-Object-oriented style repo with algorithms solution for Leetcode, unit testing.
+Object-oriented style repo with algorithms solution and unit testing for Leetcode.
 ### Leetcode
 - BST
 
