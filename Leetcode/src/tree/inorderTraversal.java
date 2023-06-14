@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lib.BSTNode;
-import lib.BSTVisualise;
 import lib.TestBST;
 import lib.TestUtil;
 

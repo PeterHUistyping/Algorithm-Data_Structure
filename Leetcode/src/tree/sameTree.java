@@ -1,6 +1,5 @@
 package tree;
 import lib.BSTNode;
-import lib.BSTVisualise;
 import lib.TestBST;
 import lib.TestUtil;
 

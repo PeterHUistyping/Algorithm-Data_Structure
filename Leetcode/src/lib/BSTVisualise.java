@@ -1,7 +1,4 @@
 package lib;
-import lib.BSTNode;
-import lib.BST;
-
 
 
 public class BSTVisualise {
