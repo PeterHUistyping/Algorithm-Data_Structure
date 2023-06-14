@@ -1,6 +1,11 @@
+package tree;
 
 import lib.TreeNode;
 
+/*
+ * 108. Given an integer array nums where the elements are sorted 
+ * in ascending order, convert it to a height-balanced binary search tree.
+ */
 class Solution {
     public TreeNode create(int[] nums, int index, int length) {
         TreeNode head;

@@ -1,28 +1,30 @@
+package tree;
 import lib.TreeOperation;
 import lib.TreeNode;
 
-public class Symmetric_Tree_101 {
-    public static boolean isSymmetric(TreeNode root) {
-        return Symmetric(root.left, root.right);
+/*
+ * 110. Given a binary tree, determine if it is height-balanced.
+ */
+
+public class isBalancedBST {
+    public static int maxDepth(TreeNode root) {
+        if (root == null)
+            return 0;
+        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
     }
 
-    public static boolean Symmetric(TreeNode p, TreeNode q) {
-        if (p != null && q == null || p == null && q != null) // beginning
-            return false;
-        else if (p != null && q != null) {
-            if (p.val != q.val)
-                return false;
-
-            if (Symmetric(p.left, q.right) && Symmetric(p.right, q.left))
-                return true;
-        } else if (p == null && q == null)
+    public static boolean isBalanced(TreeNode root) {
+        if (root == null)
             return true;
-
+        if (Math.abs(maxDepth(root.left) - maxDepth(root.right)) > 1)
+            return false;
+        if (isBalanced(root.left) && isBalanced(root.right))
+            return true;
         return false;
     }
 }
 
-class IOtestingFor101 {
+class IOtestingFor110 {
     public static void main(String[] arguments) {
         System.out.println("---- The Below is the Result ----");
         int[] nums = { 0, 1, 2, 3, 4, 5, 6, 7 };
@@ -34,7 +36,7 @@ class IOtestingFor101 {
         System.out.println("\n---- The Below is the Result ----");
         TreeOperation.printTreeHorizontal(tree);
         System.out.println("\n---- The Below is the Result ----");
-        System.out.print(Symmetric_Tree_101.isSymmetric(tree));
+        System.out.print(isBalancedBST.isBalanced(tree));
         System.out.println("\n ------ End of the Result ------ \n");
 
     }

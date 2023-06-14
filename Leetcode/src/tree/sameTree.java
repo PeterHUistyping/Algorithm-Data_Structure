@@ -1,7 +1,15 @@
+package tree;
 import lib.TreeNode;
 import lib.TreeOperation;
+import lib.TestUtil;
 
-public class Same_Tree_100 {
+/*
+ * 100. Given the roots of two binary trees p and q, 
+ * write a function to check if they are the same or not.
+ * Two binary trees are considered the same if they are structurally 
+ * identical, and the nodes have the same value.
+ */
+public class sameTree {
     public static boolean isSameTree(TreeNode p, TreeNode q) {
         if (p != null && q == null || p == null && q != null) // beginning
             return false;
@@ -20,18 +28,21 @@ public class Same_Tree_100 {
 
 class IOtestingFor100 {
     public static void main(String[] arguments) {
-        System.out.println("---- The Below is the Result ----");
+        TestUtil.IO.printResult("Input Data");
         int[] nums = { 0, 1, 2, 3, 4, 5, 6, 7 };
         TreeNode tree = new TreeNode();
         tree = tree.sortedArrayToBST(nums);
         tree.PrintTreeAsArray();
-        System.out.println("\n---- The Below is the Result ----");
+        TestUtil.IO.printResult();
+        //TestUtil.IO.printResult();
         TreeOperation.show(tree);
-        System.out.println("\n---- The Below is the Result ----");
+        TestUtil.IO.printResult();
+        
         TreeOperation.printTreeHorizontal(tree);
-        System.out.println("\n---- The Below is the Result ----");
-        System.out.print(Same_Tree_100.isSameTree(tree, tree));
-        System.out.println("\n ------ End of the Result ------ \n");
+        TestUtil.IO.printResult();
+
+        System.out.print(sameTree.isSameTree(tree, tree));
+        TestUtil.IO.endofResult();
     }
 
 }

@@ -1,7 +1,12 @@
+package tree;
 import lib.TreeOperation;
 import lib.TreeNode;
-
-public class maxDepthofBT_104 {
+/*
+ * 104. Given the root of a binary tree, return its maximum depth.
+ * A binary tree's maximum depth is the number of nodes along the 
+ * longest path from the root node down to the farthest leaf node.
+ */
+public class maxDepthBST {
     public static int maxDepth(TreeNode root) {
         if (root == null)
             return 0;
@@ -21,7 +26,7 @@ class IOtestingFor104 {
         System.out.println("\n---- The Below is the Result ----");
         TreeOperation.printTreeHorizontal(tree);
         System.out.println("\n---- The Below is the Result ----");
-        System.out.print(maxDepthofBT_104.maxDepth(tree));
+        System.out.print(maxDepthBST.maxDepth(tree));
         System.out.println("\n ------ End of the Result ------ \n");
 
     }
