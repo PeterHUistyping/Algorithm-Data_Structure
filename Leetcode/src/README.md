@@ -1,6 +1,8 @@
 Object-oriented style repo with algorithms solution and unit testing for Leetcode.
 ### Leetcode
 https://leetcode.com/
+
+**Data Structure**
 - BST
 
 202208
@@ -14,3 +16,6 @@ BSTNode
    |
   BST
 ```
+
+**Algorithms**
+- dp Dynamic Programming

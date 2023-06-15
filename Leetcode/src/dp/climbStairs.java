@@ -11,13 +11,18 @@ import lib.TestUtil;
  * 1 <= n <= 45
  * 
  * Strategy:
- * The final answer f(n)=f(n-1)+f(n-2), depends on the previous overlapping problems.
+ * The final answer f(n)=f(n-1)+f(n-2), 
+ * depends on the previous overlapping problems.
  * 
  */
 
 class Solution {
     /*
      * Top-Down with memoization
+     * n is the maximum input integer.
+     * Time complexity: O(n), each res[i] will only be calculated once
+     * i.e. for each res[i], it takes T(i)=i.
+     * Space complexity: O(n), an int array for each n.
      */
     static int [] res = new int[50];
     public static int climbStairs(int n) {
@@ -53,8 +58,7 @@ class Solution {
 }
 
 public class climbStairs {
-    public static void main(String[]args){
-        
+    public static void main(String[]args){       
         TestUtil.IO.printResult();
         /*
          * Testing the maximum of the input data.
@@ -65,7 +69,5 @@ public class climbStairs {
         System.out.println(Solution.climbStairs(1));
         System.out.println(Solution.climbStairs(2));
         System.out.println(Solution.climbStairs(3));
-
-
     }
 }
