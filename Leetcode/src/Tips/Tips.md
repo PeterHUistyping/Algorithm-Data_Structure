@@ -5,7 +5,7 @@
 Considering
   - Input constraints  
   - Time and space complexity  
-## Common pitfall
+## Common pitfalls
 - Empty the data structure (array) when *reusing* them.  
   ```
   java built-in array: 
